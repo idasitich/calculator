@@ -16,6 +16,8 @@ const point = document.getElementById('point');
 const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
 
+const inputsArray = [];
+
 
 // document.getElementById('start_button').addEventListener("click", () =>{
 //     document.querySelector('.to_play_hidden').className= 'to_play_show';
@@ -29,35 +31,64 @@ const ac = document.getElementById('ac');
 // });
 
 function mathOperation (number1, operator, number2){
+    let result = 0;
     switch (operator) {
         case '+':
-            return number1 + number2;
+            result = number1 + number2;
             break;
         case '-':
-            return number1 - number2;
+            result = number1 - number2;
             break;
         case '*':
-            return number1 * number2;
+            result = number1 * number2;
             break;
         case '/':
-            return (number!= 0)? number1 / number2: 'Please, the divider should be different than 0';
+            result = (number!= 0)? number1 / number2: 'Error';
             break;
         default:
-            return 'Please, enter right operators';
+            result = 'Please, enter right operators';
       }
+    return result;
 }
  
 
-function makeNumbers(stringNumber) {
-    // const beggining = stringNumber.charAt(0);
-    // if(beggining == '-'){ }
-    let convertedNumber = 0;
+function makeFirstNumber(stringNumber) {
     const dotTimes = stringNumber.split('.').length-1;
-    if(dotTimes > 1) {'Please, enter valid numbers';};
-    if( dotTimes == 1 ) {
-        // convertedNumber = parseFloat(stringNumber);
-        convertedNumber = Number(stringNumber);
-    }
-    stringNumber.includes("world");
-    
+    const lineTimes = stringNumber.split('-').length-1;
+    if(dotTimes > 1 || lineTimes > 1) {'Only valid numbers';};
+    if(lineTimes == 1 && stringNumber.charAt(0) != 0) {'Only valid numbers';};
+    return Number(stringNumber);
 }
+
+function takingInputs() {
+    const inputChain = [];
+    document.querySelectorAll("click", (button) => {
+        inputChain.push(button.value);
+    })
+    return inputChain;
+}
+
+function consider
+
+
+
+
+
+//is someone press 4-5 
+//if someone press -4-5
+//if someone press -4.33-5-7-8-9
+//if 4-5+7/9*2
+
+// function takingParameters(inputsArray){
+//     const chain = [...inputsArray];
+//     if(chain[0] == '-' o regex de digitos){
+//         chain.forEach((char) => chain.filter(char matches con un regex de simbolos )
+//         return indexOf(char))
+//         let numeroString = chain.splice(posicion0 y simbolo)
+//         let primerNumero = Number(numeroString);
+//         operando = chain(indexOfChar)
+
+//     }
+    
+
+// }

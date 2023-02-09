@@ -5,15 +5,23 @@
     font-family: "digital";
     src: url('../fonts/digital.ttf');
 }
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 main{
-    margin: 100px 500px;
+    /* margin: 100px 500px; */
     padding: 30px 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    width: 17%;
+    width: 215px;
     border: 2px solid black;
     background-color: rgb(10, 166, 52);
 }
