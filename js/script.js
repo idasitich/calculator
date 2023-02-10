@@ -30,6 +30,14 @@ const inputsArray = [];
 //     console.log('seven value', typeof seven.value, typeof number1234, number1234);
 // });
 
+function isDigit(str) {
+    const regExOnlyNumbers="^[0-9]+$";
+    if(str.match(regExOnlyNumbers)!=null) {
+        return true;
+    }
+    return false;
+}
+
 function mathOperation (number1, operator, number2){
     let result = 0;
     switch (operator) {
@@ -60,18 +68,28 @@ function makeFirstNumber(stringNumber) {
     return Number(stringNumber);
 }
 
-function takingInputs() {
+// function takingInputs() {
     const inputChain = [];
-    document.querySelectorAll("click", (button) => {
+    let inputString = '';
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
         inputChain.push(button.value);
-    })
-    return inputChain;
-}
+        inputString.concat(button.value);
+        console.log(inputChain);
+    })}
+    
+    // return inputString;
+)
 
-function consider
+//function considerParameters(inputsStr) {
+    //if(isDigit(inputsStr.charAt(0)) || inputsStr.charAt(0) == '-' ){
+
+    // }
+
+//}
 
 
-
+// takingInputs();
 
 
 //is someone press 4-5 
@@ -91,4 +109,4 @@ function consider
 //     }
     
 
-// }
+// 
