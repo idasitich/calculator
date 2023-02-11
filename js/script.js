@@ -78,7 +78,7 @@ const makeFirstNumber = (stringNumber) => {
 
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
-    if(button.value != '='){
+    if(button.value != '=' ){
         inputsString+= button.value;
         console.log('mi string', inputsString);
     }
