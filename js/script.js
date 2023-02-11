@@ -27,21 +27,21 @@ const isOperator = (element) => (element == '+'|| element == '-' || element == '
 
 
 const splittingTerms = (inputString) => {
-    let number = '';
-    let operator = '';
     const termsArray = []
     for( char in inputString) {
         if (isOperator(char)){
+            let number = '';
+            let operator = '';
             number = inputString.substring(0, char);
             termsArray.push(number);
             operator = char;
             termsArray.push(operator);
-            inputString = '';
+            inputString -= inputString.substring(0, char+1);
+            console.log('inputstring', inputstring);
         }
     }
     return termsArray;
 } 
-
 
 
 const mathOperation = (number1, operator, number2) => {
@@ -76,12 +76,11 @@ const makeFirstNumber = (stringNumber) => {
 
 // console.log(array1.findIndex(isOperator));
 
-
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
     if(button.value != '='){
         inputsString+= button.value;
-        console.log('mi string', iinputsString);
+        console.log('mi string', inputsString);
     }
     if(button.value == '='){
         splittingTerms(inputsString);
