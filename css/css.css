@@ -5,23 +5,33 @@
     font-family: "digital";
     src: url('../fonts/digital.ttf');
 }
-main{
-    margin: 5% 40%;
+/* main{
+    margin: 5% 40%;} */
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    /* margin: 100px 500px; */
     padding: 30px 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    width: 17%;
+    width: 215px;
     border: 2px solid black;
     background-color: rgb(10, 166, 52);
 }
-section{
+section {
     flex: 1;
     padding-bottom: 10px;
 }
-button{
+button {
     width: 50px;
     height: 50px;
     color: white;
@@ -29,9 +39,12 @@ button{
     margin: 3px 0;
     cursor: pointer;
 }
-.screen{
+/* .screen{
     width: 100%;
-    height: auto;
+    height: auto;} */
+.screen {
+    width: 210px;
+    height: 50px;
     border: 2px solid black;
     display: block;
     font-size: 36px;
@@ -42,24 +55,24 @@ button{
     box-sizing: border-box;
     padding: 8px;
 }
-.purple{
+.purple {
     background-color: rgb(105, 50, 156);
 }
-.red{
+.red {
     background-color: rgb(147, 10, 104);
 }
-.yellow{
+.yellow {
     background-color: rgb(209, 128, 14);
 }
-.ac{
+.ac, .bs {
     width: 50px;
     height: 25px;
     color: rgb(19, 18, 18);
     border: 1px solid black;
 }
-.bs{
+/* .bs{
     width: 100px;
     height: 25px;
     color: rgb(19, 18, 18);
     border: 1px solid black;
-}
+} */

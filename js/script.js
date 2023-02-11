@@ -16,48 +16,73 @@ const point = document.getElementById('point');
 const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
 
+let inputsString = '';
+const inputParameters = [];
+//split in termns tiene que partir el string en terminos y rebotar un resultado.
+//ese resultado tiene que ser el primer item de inputsarray, en consecuencia hay que sacarle todos los items y ponerle solo este resultado.
+const isNumber = (str) => (str.match(/^[-+]?([0-9]*(\.?)[0-9])+$/)!=null);
+const isDigit = (str) => (str.match(/^[0-9]+$/)!=null);
+const isPoint = (str) => (str.match(".")!=null);
+const isOperator = (element) => (element == '+'|| element == '-' || element == '/' || element == '*');
 
-// document.getElementById('start_button').addEventListener("click", () =>{
-//     document.querySelector('.to_play_hidden').className= 'to_play_show';
-//     document.querySelector('.to_play_show').className='hide';
-//  });
 
-// seven.addEventListener("click", () => {
-//     const digitSeven = parseInt(seven.value)
-//     const number1234 = parseInt('1234');
-//     console.log('seven value', typeof seven.value, typeof number1234, number1234);
-// });
+const splittingTerms = (inputString) => {
+    const termsArray = []
+    for( char in inputString) {
+        if (isOperator(char)){
+            let number = '';
+            let operator = '';
+            number = inputString.substring(0, char);
+            termsArray.push(number);
+            operator = char;
+            termsArray.push(operator);
+            inputString -= inputString.substring(0, char+1);
+            console.log('inputstring', inputstring);
+        }
+    }
+    return termsArray;
+} 
 
-function mathOperation (number1, operator, number2){
+
+const mathOperation = (number1, operator, number2) => {
+    let result;
     switch (operator) {
         case '+':
-            return number1 + number2;
+            result = number1 + number2;
             break;
         case '-':
-            return number1 - number2;
+            result = number1 - number2;
             break;
         case '*':
-            return number1 * number2;
+            result = number1 * number2;
             break;
         case '/':
-            return (number!= 0)? number1 / number2: 'Please, the divider should be different than 0';
+            result = (number!= 0)? number1 / number2: 'Error';
             break;
         default:
-            return 'Please, enter right operators';
+            result = 'Please, right operators';
       }
+    return result;
 }
  
 
-function makeNumbers(stringNumber) {
-    // const beggining = stringNumber.charAt(0);
-    // if(beggining == '-'){ }
-    let convertedNumber = 0;
+const makeFirstNumber = (stringNumber) => {
     const dotTimes = stringNumber.split('.').length-1;
-    if(dotTimes > 1) {'Please, enter valid numbers';};
-    if( dotTimes == 1 ) {
-        // convertedNumber = parseFloat(stringNumber);
-        convertedNumber = Number(stringNumber);
-    }
-    stringNumber.includes("world");
-    
+    const lineTimes = stringNumber.split('-').length-1;
+    if(dotTimes > 1 || lineTimes > 1) {'Only valid numbers';};
+    if(lineTimes == 1 && stringNumber.charAt(0) != 0) {'Only valid numbers';};
+    return Number(stringNumber);
 }
+
+// console.log(array1.findIndex(isOperator));
+
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+    if(button.value != '=' ){
+        inputsString+= button.value;
+        console.log('mi string', inputsString);
+    }
+    if(button.value == '='){
+        splittingTerms(inputsString);
+    }
+})});
