@@ -16,30 +16,36 @@ const point = document.getElementById('point');
 const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
 
-const inputsArray = [];
+let inputsString = '';
+const inputParameters = [];
+//split in termns tiene que partir el string en terminos y rebotar un resultado.
+//ese resultado tiene que ser el primer item de inputsarray, en consecuencia hay que sacarle todos los items y ponerle solo este resultado.
+const isNumber = (str) => (str.match(/^[-+]?([0-9]*(\.?)[0-9])+$/)!=null);
+const isDigit = (str) => (str.match(/^[0-9]+$/)!=null);
+const isPoint = (str) => (str.match(".")!=null);
+const isOperator = (element) => (element == '+'|| element == '-' || element == '/' || element == '*');
 
 
-// document.getElementById('start_button').addEventListener("click", () =>{
-//     document.querySelector('.to_play_hidden').className= 'to_play_show';
-//     document.querySelector('.to_play_show').className='hide';
-//  });
-
-// seven.addEventListener("click", () => {
-//     const digitSeven = parseInt(seven.value)
-//     const number1234 = parseInt('1234');
-//     console.log('seven value', typeof seven.value, typeof number1234, number1234);
-// });
-
-function isDigit(str) {
-    const regExOnlyNumbers="^[0-9]+$";
-    if(str.match(regExOnlyNumbers)!=null) {
-        return true;
+const splittingTerms = (inputString) => {
+    let number = '';
+    let operator = '';
+    const termsArray = []
+    for( char in inputString) {
+        if (isOperator(char)){
+            number = inputString.substring(0, char);
+            termsArray.push(number);
+            operator = char;
+            termsArray.push(operator);
+            inputString = '';
+        }
     }
-    return false;
-}
+    return termsArray;
+} 
 
-function mathOperation (number1, operator, number2){
-    let result = 0;
+
+
+const mathOperation = (number1, operator, number2) => {
+    let result;
     switch (operator) {
         case '+':
             result = number1 + number2;
@@ -54,13 +60,13 @@ function mathOperation (number1, operator, number2){
             result = (number!= 0)? number1 / number2: 'Error';
             break;
         default:
-            result = 'Please, enter right operators';
+            result = 'Please, right operators';
       }
     return result;
 }
  
 
-function makeFirstNumber(stringNumber) {
+const makeFirstNumber = (stringNumber) => {
     const dotTimes = stringNumber.split('.').length-1;
     const lineTimes = stringNumber.split('-').length-1;
     if(dotTimes > 1 || lineTimes > 1) {'Only valid numbers';};
@@ -68,45 +74,16 @@ function makeFirstNumber(stringNumber) {
     return Number(stringNumber);
 }
 
-// function takingInputs() {
-    const inputChain = [];
-    let inputString = '';
-    document.querySelectorAll('button').forEach(button => {
-        button.addEventListener('click', () => {
-        inputChain.push(button.value);
-        inputString.concat(button.value);
-        console.log(inputChain);
-    })}
-    
-    // return inputString;
-)
-
-//function considerParameters(inputsStr) {
-    //if(isDigit(inputsStr.charAt(0)) || inputsStr.charAt(0) == '-' ){
-
-    // }
-
-//}
+// console.log(array1.findIndex(isOperator));
 
 
-// takingInputs();
-
-
-//is someone press 4-5 
-//if someone press -4-5
-//if someone press -4.33-5-7-8-9
-//if 4-5+7/9*2
-
-// function takingParameters(inputsArray){
-//     const chain = [...inputsArray];
-//     if(chain[0] == '-' o regex de digitos){
-//         chain.forEach((char) => chain.filter(char matches con un regex de simbolos )
-//         return indexOf(char))
-//         let numeroString = chain.splice(posicion0 y simbolo)
-//         let primerNumero = Number(numeroString);
-//         operando = chain(indexOfChar)
-
-//     }
-    
-
-// 
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+    if(button.value != '='){
+        inputsString+= button.value;
+        console.log('mi string', iinputsString);
+    }
+    if(button.value == '='){
+        splittingTerms(inputsString);
+    }
+})});
