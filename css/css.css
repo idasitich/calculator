@@ -6,7 +6,7 @@
     src: url('../fonts/digital.ttf');
 }
 main{
-    margin: 100px 500px;
+    margin: 5% 40%;
     padding: 30px 15px;
     display: flex;
     flex-direction: column;
@@ -30,8 +30,8 @@ button{
     cursor: pointer;
 }
 .screen{
-    width: 210px;
-    height: 50px;
+    width: 100%;
+    height: auto;
     border: 2px solid black;
     display: block;
     font-size: 36px;
@@ -53,6 +53,12 @@ button{
 }
 .ac{
     width: 50px;
+    height: 25px;
+    color: rgb(19, 18, 18);
+    border: 1px solid black;
+}
+.bs{
+    width: 100px;
     height: 25px;
     color: rgb(19, 18, 18);
     border: 1px solid black;
