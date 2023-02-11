@@ -42,7 +42,8 @@ button {
 /* .screen{
     width: 100%;
     height: auto;} */
-.screen {
+
+#screen {
     width: 210px;
     height: 50px;
     border: 2px solid black;
@@ -51,6 +52,19 @@ button {
     text-align: right;
     border-radius: 10px;
     background-color: rgba(84, 84, 84, 0.853);
+    font-family: "digital";
+    box-sizing: border-box;
+    padding: 8px;
+}
+#keyscreen {
+    width: 210px;
+    height: 30px;
+    border: 2px solid rgb(40, 38, 38);
+    display: block;
+    font-size: 36px;
+    text-align: right;
+    border-radius: 10px;
+    background-color: rgba(124, 117, 117, 0.853);
     font-family: "digital";
     box-sizing: border-box;
     padding: 8px;
@@ -64,7 +78,7 @@ button {
 .yellow {
     background-color: rgb(209, 128, 14);
 }
-.ac, .bs {
+#ac, #bs {
     width: 50px;
     height: 25px;
     color: rgb(19, 18, 18);
