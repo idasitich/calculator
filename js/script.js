@@ -15,6 +15,7 @@ const divide = document.getElementById('divide');
 const point = document.getElementById('point');
 const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
+const bs = document.getElementById('bs');
 const screen = document.getElementById('screen');
 
 let inputsString = '';
@@ -122,7 +123,7 @@ const mathOperation = (number1, operator, number2) => {
             result = number1 * number2;
             break;
         case '/':
-            result = (number!= 0)? number1 / number2: 'Error';
+            result = number2 != 0? number1 / number2: 'Error';
             break;
         default:
             result = 'Please, right operators';
@@ -164,7 +165,6 @@ document.querySelectorAll('.purple').forEach(button => {
         console.log(number1);
         operator = button.value;
         console.log(operator);
-        screen.textContent += button.value;
         rinseWell();
 })});
 
@@ -184,6 +184,9 @@ const reset = () => {
     number1 = 0;
     number2 = 0;
 };
+
+bs.addEventListener('click', () => screen.textContent =  screen.textContent.substring(0, screen.textContent.length - 1));
+
 
 
 

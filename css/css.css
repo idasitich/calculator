@@ -59,7 +59,7 @@ button {
 .yellow {
     background-color: rgb(209, 128, 14);
 }
-.ac, .bs {
+#ac, #bs {
     width: 50px;
     height: 25px;
     color: rgb(19, 18, 18);
