@@ -68,6 +68,7 @@ button {
     font-family: "digital";
     box-sizing: border-box;
     padding: 8px;
+    margin: 10px 0;
 }
 .purple {
     background-color: rgb(105, 50, 156);
