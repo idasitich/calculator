@@ -51,7 +51,7 @@ button {
     font-family: "digital";
     box-sizing: border-box;
     padding: 8px;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 }
 
 #keyscreen {
@@ -67,7 +67,7 @@ button {
     box-sizing: border-box;
     padding: 8px;
     margin: 10px 0;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 }
 
 .purple {
