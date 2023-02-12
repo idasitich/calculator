@@ -12,7 +12,9 @@ let number2 = 0;
 const rinseWell = () => screen.textContent = "";
 
 const reset = () => {
+    screen.className= '';
     screen.textContent = '';
+    keyscreen.textContent = '';
     operator = '';
     number1 = 0;
     number2 = 0;
@@ -41,25 +43,30 @@ const mathOperation = (number1, operator, number2) => {
 }
  
 document.querySelectorAll('.yellow').forEach(button => {
+    screen.className= '';
     button.addEventListener('click', () => {
         screen.textContent += button.value;
         inputsString += button.value;
-        keyscreen.textContent +=inputsString;
+        keyscreen.textContent =inputsString;
 })});
 
 document.querySelectorAll('.purple').forEach(button => {
+    screen.className= '';
     button.addEventListener('click', () => {
         number1 = Number(screen.textContent);
         operator = button.value;
         inputsString += button.value;
-        keyscreen.textContent +=inputsString;
+        keyscreen.textContent =inputsString;
         rinseWell();
 })});
 
 equals.addEventListener("click", () => {
+    screen.className= '';
     number2 = Number(screen.textContent);
     if(isNaN(number1)) {screen.textContent = 'Error, Invalid Numbers';};
     console.log(number2);
+    let result = mathOperation(number1, operator, number2);
+    if(result == 'Please, not divide by 0'){ screen.className= 'smaller_font';}
     screen.textContent = mathOperation(number1, operator, number2);
 });
 

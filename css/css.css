@@ -5,8 +5,6 @@
     font-family: "digital";
     src: url('../fonts/digital.ttf');
 }
-/* main{
-    margin: 5% 40%;} */
 
 body {
     height: 100vh;
@@ -16,7 +14,6 @@ body {
 }
 
 main {
-    /* margin: 100px 500px; */
     padding: 30px 15px;
     display: flex;
     flex-direction: column;
@@ -27,10 +24,12 @@ main {
     border: 2px solid black;
     background-color: rgb(10, 166, 52);
 }
+
 section {
     flex: 1;
     padding-bottom: 10px;
 }
+
 button {
     width: 50px;
     height: 50px;
@@ -39,54 +38,79 @@ button {
     margin: 3px 0;
     cursor: pointer;
 }
-/* .screen{
-    width: 100%;
-    height: auto;} */
 
 #screen {
     width: 210px;
     height: 50px;
     border: 2px solid black;
     display: block;
-    font-size: 36px;
+    font-size: 33px;
     text-align: right;
     border-radius: 10px;
     background-color: rgba(84, 84, 84, 0.853);
     font-family: "digital";
     box-sizing: border-box;
     padding: 8px;
+    overflow-x: scroll;
 }
+
 #keyscreen {
     width: 210px;
-    height: 30px;
+    height: 34px;
     border: 2px solid rgb(40, 38, 38);
     display: block;
-    font-size: 36px;
+    font-size: 15px;
     text-align: right;
     border-radius: 10px;
     background-color: rgba(124, 117, 117, 0.853);
     font-family: "digital";
     box-sizing: border-box;
     padding: 8px;
+    margin: 10px 0;
+    overflow-x: scroll;
 }
+
 .purple {
     background-color: rgb(105, 50, 156);
 }
+
 .red {
     background-color: rgb(147, 10, 104);
 }
+
 .yellow {
     background-color: rgb(209, 128, 14);
 }
+
 #ac, #bs {
     width: 50px;
     height: 25px;
     color: rgb(19, 18, 18);
     border: 1px solid black;
 }
-/* .bs{
-    width: 100px;
-    height: 25px;
-    color: rgb(19, 18, 18);
-    border: 1px solid black;
-} */
+
+.smaller_font{
+    font-size: 19px !important;
+    text-align: center !important;
+    padding-top: 7% !important;
+}
+
+::-webkit-scrollbar {
+    width: 5px 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(84, 84, 84, 0.853);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
