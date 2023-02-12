@@ -51,7 +51,8 @@ button {
     font-family: "digital";
     box-sizing: border-box;
     padding: 8px;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #keyscreen {
@@ -67,7 +68,8 @@ button {
     box-sizing: border-box;
     padding: 8px;
     margin: 10px 0;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .purple {
@@ -127,7 +129,6 @@ background: rgba(84, 84, 84, 0.853);
 ::-moz-scrollbar-thumb {
 background: #888;
 }
-  
 /* Handle on hover */
 ::-moz-scrollbar-thumb:hover {
 background: #555;
