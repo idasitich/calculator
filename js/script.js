@@ -9,6 +9,8 @@ let operator;
 let number1;
 let number2;
 
+const isOperator = (element) => (element == '+'|| element == '-' || element == '/' || element == '*');
+
 const rinseWell = () => screen.textContent = "";
 
 const reset = () => {
@@ -52,6 +54,7 @@ document.querySelectorAll('.yellow').forEach(button => {
 
 document.querySelectorAll('.purple').forEach(button => {
     screen.className= '';
+    // if(button.value == '-' && (screen.textContent == '' || isOperator(screen.textContent))){  }
     button.addEventListener('click', () => {
         number1 = Number(screen.textContent);
         operator = button.value;
