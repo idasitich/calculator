@@ -4,10 +4,10 @@ const bs = document.getElementById('bs');
 const screen = document.getElementById('screen');
 const keyscreen = document.getElementById('keyscreen');
 
-let inputsString = '';
-let operator = '';
-let number1 = 0;
-let number2 = 0;
+let inputsString;
+let operator;
+let number1;
+let number2;
 
 const rinseWell = () => screen.textContent = "";
 
@@ -63,19 +63,11 @@ document.querySelectorAll('.purple').forEach(button => {
 equals.addEventListener("click", () => {
     screen.className= '';
     number2 = Number(screen.textContent);
-    if(isNaN(number1)) {screen.textContent = 'Error, Invalid Numbers';};
-    console.log(number2);
     let result = mathOperation(number1, operator, number2);
-    if(result == 'Please, not divide by 0'){ screen.className= 'smaller_font';}
-    screen.textContent = mathOperation(number1, operator, number2);
+    if(isNaN(result)){ screen.className= 'smaller_font';}
+    screen.textContent = (isNaN(result) && result != 'Please, not divide by 0')? 'Error, Invalid Numbers': result;
 });
 
 ac.addEventListener('click', () => reset());
 
 bs.addEventListener('click', () => screen.textContent =  screen.textContent.substring(0, screen.textContent.length - 1));
-
-
-
-
-
-
