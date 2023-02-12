@@ -100,17 +100,17 @@ button {
   }
   
   /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgba(84, 84, 84, 0.853);
-  }
+::-webkit-scrollbar-track {
+background: rgba(84, 84, 84, 0.853);
+}
   
   /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
+::-webkit-scrollbar-thumb {
+background: #888;
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
 
