@@ -1,4 +1,3 @@
-
 const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
 const bs = document.getElementById('bs');
