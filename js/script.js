@@ -10,6 +10,7 @@ let number1 = 0;
 let number2 = 0;
 
 const rinseWell = () => screen.textContent = "";
+const clear = () => keyscreen.textContent = "";
 
 const reset = () => {
     screen.className= '';
@@ -75,24 +76,23 @@ ac.addEventListener('click', () => reset());
 bs.addEventListener('click', () => screen.textContent =  screen.textContent.substring(0, screen.textContent.length - 1));
 
 
-
 document.addEventListener('keydown', function (event) {
     let numbers = /[0-9]/g;
     let operators = /[+\-*\/]/g;
     if (event.key.match(numbers)) {
       screen.textContent += event.key;
-      screen2.textContent += event.key;
+      keyscreen.textContent += event.key;
     }
     if (event.key === '.') {
       screen.textContent += event.key;
-      screen2.textContent += event.key;
+      keyscreen.textContent += event.key;
     }
     if (event.key.match(operators)) {
       number1 = +screen.textContent;
       operator = event.key;
       screen.textContent += event.key;
        rinseWell();
-      screen2.textContent += event.key;
+      keyscreen.textContent += event.key;
     }
     if (event.key === 'Enter' || event.key === '=') {
       number2 = +screen.textContent;
