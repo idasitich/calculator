@@ -13,30 +13,12 @@ const isOperator = (element) => (element == '+'|| element == '-' || element == '
 
 const rinseWell = () => screen.textContent = "";
 
-// const controlDecimals = (str) => {
-//     let whereDot = str.indexOf('.');
-//     let decPart = str.slice(whereDot);
-//     let lenDecPart = decPart.length;
-//     if(lenDecPart > 6 ){
-//         decPart = decPart.slice(0, 7);
-//         return str.slice(0, whereDot) + '.' + decPart;
-//     }
-//     return str;
-// }
-
-// const controlBeginZeros = (str) => {
-//     let whereO = str.indexOf('0');
-//     let whereDot = str.indexOf('.');
-//     if((whereDot-whereO == 1 && whereO == 0 ) || whereO != 0){
-//         return str;
-//     }
-//     return controlBeginZeros(str.slice(1));
-// }
-
-// const controlSign = (array, i) => {
-//     if (!isNaN(array[i]) && array[i-1] == '-' && (!isNaN(array[i-2]) || !array[i-2] )) { return array[i] * -1}
-//     return array[i]
-// }
+const controlDecimals = (num) => {
+    if(num - Math.floor(num) != 0 && (num - Math.trunc(num)).toString().length > 8) {
+        return num.toFixed(7);
+    }
+    return num;
+}
 
 
 const reset = () => {
@@ -97,7 +79,7 @@ document.querySelectorAll('.purple').forEach(button => {
                     inputsString.push(button.value);
                     keyscreen.textContent =inputsString.join('');
                 } else {
-                    number1 = Number(screen.textContent).toFixed(6);
+                    number1 = Number(screen.textContent);
                     operator= button.value
                     inputsString.push(button.value);
                     keyscreen.textContent =inputsString.join('');
@@ -112,7 +94,7 @@ document.querySelectorAll('.purple').forEach(button => {
                 console.log('my prev screen with +', inputsString.at(-1));
                 console.log('-1', inputsString.at(-1));
                 if(!isOperator(inputsString.at(-1))) {
-                    number1 = Number(screen.textContent).toFixed(6);
+                    number1 = Number(screen.textContent);
                     operator= button.value
                     inputsString.push(button.value);
                     keyscreen.textContent =inputsString.join('');
@@ -129,7 +111,7 @@ document.querySelectorAll('.purple').forEach(button => {
                 }
             }
             else {
-                number1 = Number(screen.textContent).toFixed(6);
+                number1 = Number(screen.textContent);
                 operator= button.value
                 inputsString.push(button.value);
                 keyscreen.textContent =inputsString.join('');
@@ -144,9 +126,9 @@ document.querySelectorAll('.purple').forEach(button => {
 
 equals.addEventListener("click", () => {
     screen.className= '';
-    number2 = Number(screen.textContent).toFixed(6);
+    number2 = Number(screen.textContent);
     
-    let result = (number1 && operator && number2)? mathOperation(number1, operator, number2).toFixed(6): 'invalid operation';
+    let result = (number1 && operator && number2)? controlDecimals(mathOperation(number1, operator, number2)): 'invalid operation';
     if(isNaN(result)){ screen.className= 'smaller_font';}
     screen.textContent = (isNaN(result) && result != 'Please, not divide by 0')? 'Error, Invalid Numbers': result;
     screen.textContent = result;
