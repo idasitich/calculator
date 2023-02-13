@@ -76,6 +76,40 @@ bs.addEventListener('click', () => screen.textContent =  screen.textContent.subs
 
 
 
+document.addEventListener('keydown', function (event) {
+    let numbers = /[0-9]/g;
+    let operators = /[+\-*\/]/g;
+    if (event.key.match(numbers)) {
+      screen.textContent += event.key;
+      screen2.textContent += event.key;
+    }
+    if (event.key === '.') {
+      screen.textContent += event.key;
+      screen2.textContent += event.key;
+    }
+    if (event.key.match(operators)) {
+      number1 = +screen.textContent;
+      operator = event.key;
+      screen.textContent += event.key;
+       rinseWell();
+      screen2.textContent += event.key;
+    }
+    if (event.key === 'Enter' || event.key === '=') {
+      number2 = +screen.textContent;
+      if(isNaN(number1)) {screen.textContent = 'Error, Invalid Numbers';};
+      let result = mathOperation(number1, operator, number2);
+      if(result == 'Please, not divide by 0'){ screen.className= 'smaller_font';}
+      screen.textContent = mathOperation(number1, operator, number2);
+      clear();
+    }
+    if (event.key === "Backspace") {
+      reset()
+    }
+    if (event.key == 'Delete') {
+     screen.textContent =  screen.textContent.substring(0, screen.textContent.length - 1)
+    }
+  });
+  
 
 
 
